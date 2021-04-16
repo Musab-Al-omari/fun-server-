@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../layout/header') %>
+</head>
+<%- include('../layout/head') %>
+
+    <body>
+        <h1>this is an appp website that have <%= mainPic.length %> books </h1>
+        <li><a href="/new">sjidahsdvsgag</a></li>
+
+        <% mainPic.forEach(book=> {%>
+            <section>
+                <img src="<%= book.image_url %> " alt="">
+                <h1>
+                    <%= book.title %>
+                </h1>
+                <h2>
+                    <%= book.author %>
+                </h2>
+                <form action="/book/<%=book.id%> " method="get">
+                <button>view more detailed</button>
+                </form>
+            </section>
+            <% }); %>
+
+
+
+
+    </body>
+
+</html>

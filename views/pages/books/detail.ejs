@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../layout/header') %>
+</head>
+<%- include('../../layout/head') %>
+
+    <body>
+
+        <section>
+            <img src="<%=oneThing.image_url%>" alt="">
+            <h1>
+                Book Title: <%= oneThing.title %>
+            </h1>
+            <h2>
+                book author: <%= oneThing.authors %>
+            </h2>
+            <p>
+                Book description: <%= oneThing.description %>
+            </p>
+            <p>
+                Book Code: <%= oneThing.isbn %>
+            </p>
+
+            <button class="openForm" onclick="openForm()">update</button>
+            <form action="/books/<%= oneThing.id %>?_method=delete " method="post">
+                <button>delete this Book</button>
+            </form>
+
+            <div id="form-pop">
+                <form action="/book/<%= oneThing.id%>?_method=put " method="post">
+                    <legend>update value</legend>
+                    <label for="title">Title </label>
+                    <input type="text" name="title" placeholder="write the title" required>
+                    <br>
+                    <label for="author">author</label>
+                    <input type="text" name="author" placeholder="write author name" required>
+                    <br>
+                    <label for="description">description</label>
+                    <br>
+                    <textarea name="description" rows="20" cols="20" required></textarea>
+                    <br>
+                    <label for="isbn">isbn</label>
+                    <input type="text" name="isbn" placeholder="write isbn code" required>
+                    <br>
+                    <label for="image_url">image_url</label>
+                    <input type="text" name="image_url" required>
+                    <br>
+                    <button>save</button>
+                </form>
+
+            </div>
+            
+
+        </section>
+
+    </body>
+    <footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="/app.js"></script>
+    </footer>
+
+</html>
